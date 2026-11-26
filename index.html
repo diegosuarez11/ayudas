@@ -1091,6 +1091,7 @@
       font-size: 0.84rem;
       line-height: 1.45;
       font-weight: 500;
+      white-space: pre-line;
     }
 
     .chat-msg.bot {
@@ -1591,7 +1592,7 @@
       });
     })();
 
-    // Chatbot Mini Diego: Recauda respuestas y redirige a Telegram con el resumen
+    // Chatbot Mini Diego: Recauda respuestas y redirige a @diegojosetrader con el resumen
     (function initMiniDiegoChat() {
       const openBtn = document.getElementById('openDiegoBtn');
       const closeBtn = document.getElementById('closeDiegoBtn');
@@ -1617,11 +1618,11 @@
 
       function buildTelegramUrl() {
         const msg =
-          `Hola Diego, hablé con Mini Diego desde la web.\n` +
+          `Hola Diego (@diegojosetrader), hablé con Mini Diego desde la web.\n` +
           `• ¿Tu situación está mala?: ${state.situacionMala}\n` +
           `• ¿Querés invertir (Diego se encarga de hacer todo el trabajo)?: ${state.quiereInvertir}\n` +
           `Quisiera recibir una ayuda.`;
-        return `https://t.me/ganaplatacondiego?text=${encodeURIComponent(msg)}`;
+        return `https://t.me/diegojosetrader?text=${encodeURIComponent(msg)}`;
       }
 
       function renderStep() {
@@ -1689,7 +1690,7 @@
           actionsEl.appendChild(row);
         } else {
           appendMsg(
-            `Listo, ya anoté tu info:\n• Situación: ${state.situacionMala}\n• Inversión: ${state.quiereInvertir}\n\nTocá el botón para ir a Telegram con todo cargado.`,
+            `Listo, ya anoté tu info:\n• Situación: ${state.situacionMala}\n• Inversión: ${state.quiereInvertir}\n\nTocá el botón para ir directo al chat de @diegojosetrader con todo cargado.`,
             'bot'
           );
 
@@ -1702,7 +1703,7 @@
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M21.4 4.6L2.9 11.7c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 11-6.9c.5-.3 1-.1.6.2l-8.9 8-.3 4.9c.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.3-1.6z"/>
             </svg>
-            Enviar info a Diego en Telegram
+            Ir al chat de @diegojosetrader
           `;
 
           const resetBtn = document.createElement('button');
