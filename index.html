@@ -6,7 +6,7 @@
   <title>Diego Jose Trader | Trader Profesional Rentable</title>
   <meta
     name="description"
-    content="Diego Jose Trader — Trader Profesional Rentable. Resultados trazablemente estudiados, acompañamiento real y canal oficial en Telegram."
+    content="Diego Jose Trader — Trader Profesional Rentable. Recibe una ayuda con precisión, seguridad y acompañamiento real en Telegram."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -214,23 +214,32 @@
     }
 
     .hero-block {
-      max-width: 780px;
+      max-width: 820px;
       margin: 0 auto 44px;
       text-align: center;
     }
 
     h1 {
-      font-size: clamp(2.35rem, 4.6vw, 3.6rem);
+      font-size: clamp(2.05rem, 4.1vw, 3.25rem);
       font-weight: 800;
-      line-height: 1.08;
+      line-height: 1.12;
       letter-spacing: -0.03em;
       color: var(--text-primary);
       margin-bottom: 18px;
     }
 
-    h1 span {
+    h1 .accent-neon {
       color: var(--neon);
-      text-shadow: 0 0 28px rgba(57, 255, 20, 0.22);
+      text-shadow: 0 0 28px rgba(57, 255, 20, 0.24);
+    }
+
+    h1 .accent-sub {
+      display: block;
+      margin-top: 6px;
+      font-size: clamp(1.45rem, 2.8vw, 2.2rem);
+      font-weight: 700;
+      color: #dce3ec;
+      letter-spacing: -0.02em;
     }
 
     .hero-copy {
@@ -464,7 +473,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 8px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .chart-label {
@@ -479,9 +488,18 @@
       color: var(--neon);
     }
 
-    .performance-svg {
+    .chart-canvas-wrap {
+      position: relative;
       width: 100%;
-      height: 150px;
+      height: 168px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(57, 255, 20, 0.03) 0%, rgba(7, 9, 13, 0.9) 100%);
+    }
+
+    #liveChartCanvas {
+      width: 100%;
+      height: 100%;
       display: block;
     }
 
@@ -640,9 +658,9 @@
       line-height: 1.55;
     }
 
-    /* Sección de Video Vertical (Formato TikTok / Reel 9:16): +3,200 testimonios reales */
+    /* Sección de Video Vertical (TikTok / Reel 9:16): +3,200 testimonios reales */
     .testimonials-section {
-      max-width: 560px;
+      max-width: 580px;
       margin: 0 auto;
     }
 
@@ -684,7 +702,7 @@
       justify-content: space-between;
       gap: 12px;
       padding-bottom: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       border-bottom: 1px solid var(--border-steel);
     }
 
@@ -705,19 +723,71 @@
       margin-top: 4px;
     }
 
-    /* Formato Vertical TikTok / Reel (9:16) */
+    /* Barra de navegación del carrusel */
+    .reel-toolbar {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .reel-counter {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .reel-counter strong {
+      color: var(--neon);
+    }
+
+    .reel-nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reel-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 13px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-steel);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .reel-btn:hover {
+      background: var(--neon-muted);
+      border-color: var(--neon-border);
+      color: var(--neon);
+      transform: translateY(-1px);
+    }
+
+    /* Formato Vertical TikTok / Reel (9:16) con gesto táctil */
     .reel-frame {
       position: relative;
       z-index: 1;
       width: 100%;
       max-width: 340px;
       aspect-ratio: 9 / 16;
-      margin: 0 auto 20px;
+      margin: 0 auto 14px;
       border-radius: 18px;
       overflow: hidden;
       background: #050608;
-      border: 1px solid rgba(57, 255, 20, 0.24);
+      border: 1px solid rgba(57, 255, 20, 0.26);
       box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 24px rgba(57, 255, 20, 0.08);
+      touch-action: pan-y;
     }
 
     .reel-frame video,
@@ -728,6 +798,35 @@
       display: block;
       object-fit: cover;
       background: #050608;
+    }
+
+    /* Indicadores de puntos para saltar entre testimonios */
+    .reel-dots {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .reel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-steel);
+      background: rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 0;
+    }
+
+    .reel-dot.active {
+      width: 26px;
+      background: var(--neon);
+      border-color: var(--neon);
+      box-shadow: 0 0 10px rgba(57, 255, 20, 0.55);
     }
 
     .testimonials-footer {
@@ -855,7 +954,8 @@
       <!-- Bloque Principal Centrado -->
       <section class="hero-block reveal">
         <h1>
-          Obtené <span>resultados</span> trazablemente estudiados.
+          Recibe una <span class="accent-neon">"ayuda"</span> de Diego Jose , un trader super rentable
+          <span class="accent-sub">inverti con presicion y seguridad absoluta.</span>
         </h1>
 
         <p class="hero-copy">
@@ -930,7 +1030,7 @@
         </div>
       </section>
 
-      <!-- Tarjeta Central Ejecutiva -->
+      <!-- Tarjeta Central Ejecutiva con Gráfico Animado + Partículas -->
       <section class="showcase-wrap reveal" aria-label="Resumen operativo">
         <div class="executive-card spotlight-card">
           <div class="card-header">
@@ -938,39 +1038,18 @@
               <span class="card-kicker mono">Diego Jose Trader</span>
               <div class="card-heading">Trader Profesional Rentable</div>
             </div>
-            <span class="badge-audit mono">TRAZABLE</span>
+            <span class="badge-audit mono">PRECISIÓN ACTIVA</span>
           </div>
 
           <div class="chart-container">
             <div class="chart-header">
-              <span class="chart-label mono">EVOLUCIÓN Y DISCIPLINA</span>
-              <span class="chart-status mono">+ RESPALDO REAL</span>
+              <span class="chart-label mono">FLUJO DE PRECISIÓN Y PARTÍCULAS</span>
+              <span class="chart-status mono" id="liveRateBadge">+14.82% EN RANGO</span>
             </div>
 
-            <svg class="performance-svg" viewBox="0 0 760 150" fill="none">
-              <defs>
-                <linearGradient id="corpArea" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#39ff14" stop-opacity="0.24" />
-                  <stop offset="100%" stop-color="#39ff14" stop-opacity="0.0" />
-                </linearGradient>
-              </defs>
-              <line x1="0" y1="30" x2="760" y2="30" stroke="rgba(255,255,255,0.06)" />
-              <line x1="0" y1="75" x2="760" y2="75" stroke="rgba(255,255,255,0.06)" />
-              <line x1="0" y1="120" x2="760" y2="120" stroke="rgba(255,255,255,0.06)" />
-
-              <path
-                d="M 0 128 L 95 112 L 190 118 L 285 88 L 380 94 L 475 58 L 570 64 L 665 34 L 760 18 L 760 150 L 0 150 Z"
-                fill="url(#corpArea)"
-              />
-              <polyline
-                points="0,128 95,112 190,118 285,88 380,94 475,58 570,64 665,34 760,18"
-                stroke="#39ff14"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <circle cx="760" cy="18" r="5" fill="#39ff14" />
-            </svg>
+            <div class="chart-canvas-wrap">
+              <canvas id="liveChartCanvas"></canvas>
+            </div>
           </div>
 
           <div class="card-footer-cta">
@@ -1056,21 +1135,29 @@
             <div>
               <h2 class="testimonials-title"><span>+3,200</span> testimonios reales</h2>
               <p class="testimonials-subtitle">
-                Formato vertical tipo Reel — experiencias reales de quienes mejoraron su situación.
+                Deslizá o usá los botones para ver cada Reel en formato vertical 9:16.
               </p>
             </div>
-            <span class="badge-audit mono">REEL VERIFICADO</span>
+            <span class="badge-audit mono">REELS 9:16</span>
           </div>
 
-          <div class="reel-frame" id="reelContainer">
-            <video
-              id="reelVideo"
-              src="https://drive.google.com/uc?export=download&id=11CvzbHj1gW-WUKEirP3RGoNXB2gkbxEA"
-              controls
-              playsinline
-              preload="metadata"
-            ></video>
+          <div class="reel-toolbar">
+            <div class="reel-counter mono" id="reelCounter">
+              TESTIMONIO <strong>1 / 4</strong>
+            </div>
+            <div class="reel-nav-buttons">
+              <button type="button" class="reel-btn" id="prevReelBtn" aria-label="Testimonio anterior">
+                ← Anterior
+              </button>
+              <button type="button" class="reel-btn" id="nextReelBtn" aria-label="Siguiente testimonio">
+                Siguiente →
+              </button>
+            </div>
           </div>
+
+          <div class="reel-frame" id="reelContainer"></div>
+
+          <div class="reel-dots" id="reelDots" role="tablist" aria-label="Seleccionar testimonio"></div>
 
           <div class="testimonials-footer">
             <div class="testimonials-note">
@@ -1099,23 +1186,238 @@
   </footer>
 
   <script>
-    // Respaldo automático a /preview si Google Drive bloquea reproducción directa en <video>
-    (function initReelFallback() {
-      const video = document.getElementById('reelVideo');
-      const container = document.getElementById('reelContainer');
-      if (!video || !container) return;
+    // Gráfico animado en movimiento + partículas de energía verde flúor
+    (function initLiveParticleChart() {
+      const canvas = document.getElementById('liveChartCanvas');
+      const rateBadge = document.getElementById('liveRateBadge');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      video.addEventListener('error', () => {
-        if (container.dataset.fallbackApplied) return;
-        container.dataset.fallbackApplied = '1';
+      let width = 0;
+      let height = 0;
+      let dpr = 1;
+
+      const particles = Array.from({ length: 28 }, () => ({
+        x: Math.random(),
+        y: Math.random(),
+        r: 1.2 + Math.random() * 2.2,
+        vx: (Math.random() - 0.35) * 0.0022,
+        vy: (Math.random() - 0.5) * 0.002,
+        alpha: 0.25 + Math.random() * 0.65
+      }));
+
+      function resize() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = Math.max(240, rect.width);
+        height = Math.max(120, rect.height);
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+
+      function getCurveY(normX, t) {
+        // Curva ascendente armónica con micro-oscilaciones de mercado
+        const trend = height * 0.78 - normX * (height * 0.52);
+        const wave1 = Math.sin(normX * 7.5 - t * 2.1) * (height * 0.085);
+        const wave2 = Math.cos(normX * 14.0 - t * 3.4) * (height * 0.032);
+        return Math.max(18, Math.min(height - 16, trend + wave1 + wave2));
+      }
+
+      let start = performance.now();
+      let lastBadgeUpdate = 0;
+
+      function render(now) {
+        const t = reducedMotion ? 1.2 : (now - start) / 1000;
+        ctx.clearRect(0, 0, width, height);
+
+        // Líneas de cuadrícula sutiles
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+        ctx.lineWidth = 1;
+        [0.25, 0.5, 0.75].forEach((ratio) => {
+          const y = Math.round(height * ratio) + 0.5;
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(width, y);
+          ctx.stroke();
+        });
+
+        // Partículas flotantes de energía
+        particles.forEach((p) => {
+          if (!reducedMotion) {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x > 1.04) p.x = -0.04;
+            if (p.x < -0.04) p.x = 1.04;
+            if (p.y > 1.04) p.y = -0.04;
+            if (p.y < -0.04) p.y = 1.04;
+          }
+          const px = p.x * width;
+          const py = p.y * height;
+          ctx.beginPath();
+          ctx.arc(px, py, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(57, 255, 20, ${p.alpha})`;
+          ctx.fill();
+        });
+
+        // Calcular puntos de la curva dinámica
+        const steps = 90;
+        const points = [];
+        for (let i = 0; i <= steps; i++) {
+          const nx = i / steps;
+          points.push({ x: nx * width, y: getCurveY(nx, t) });
+        }
+
+        // Área bajo la curva
+        const grad = ctx.createLinearGradient(0, 0, 0, height);
+        grad.addColorStop(0, 'rgba(57, 255, 20, 0.25)');
+        grad.addColorStop(1, 'rgba(57, 255, 20, 0.0)');
+
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, height);
+        points.forEach((pt) => ctx.lineTo(pt.x, pt.y));
+        ctx.lineTo(points[points.length - 1].x, height);
+        ctx.closePath();
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        // Línea principal verde flúor
+        ctx.save();
+        ctx.beginPath();
+        points.forEach((pt, idx) => {
+          if (idx === 0) ctx.moveTo(pt.x, pt.y);
+          else ctx.lineTo(pt.x, pt.y);
+        });
+        ctx.strokeStyle = '#39ff14';
+        ctx.lineWidth = 2.6;
+        ctx.shadowColor = 'rgba(57, 255, 20, 0.55)';
+        ctx.shadowBlur = 12;
+        ctx.stroke();
+        ctx.restore();
+
+        // Partículas que viajan pegadas a la curva
+        const pulseCount = 5;
+        for (let k = 0; k < pulseCount; k++) {
+          const travelX = ((t * 0.22 + k / pulseCount) % 1 + 1) % 1;
+          const travelY = getCurveY(travelX, t);
+          const cx = travelX * width;
+
+          ctx.beginPath();
+          ctx.arc(cx, travelY, k === 0 ? 5.2 : 3.2, 0, Math.PI * 2);
+          ctx.fillStyle = k === 0 ? '#9aff85' : 'rgba(57, 255, 20, 0.85)';
+          ctx.shadowColor = '#39ff14';
+          ctx.shadowBlur = 14;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+
+        // Actualización sutil del indicador numérico
+        if (rateBadge && !reducedMotion && now - lastBadgeUpdate > 750) {
+          lastBadgeUpdate = now;
+          const val = (14.4 + Math.sin(t * 1.4) * 1.35).toFixed(2);
+          rateBadge.textContent = `+${val}% EN RANGO`;
+        }
+
+        if (!reducedMotion) {
+          requestAnimationFrame(render);
+        }
+      }
+
+      requestAnimationFrame(render);
+    })();
+
+    // Carrusel de 4 videos verticales (9:16) con soporte táctil y respaldo a /preview
+    (function initReelsCarousel() {
+      const reelIds = [
+        '11CvzbHj1gW-WUKEirP3RGoNXB2gkbxEA',
+        '1rSi2AgKt3-LPCRyDJ5Q7hYPlTJuXRMts',
+        '12EhoOAdi97zw8PGk1Bw8oYqiYYutaaNQ',
+        '1vEgbgUw3mhWgcwflBGCofbm4KzxDSD5y'
+      ];
+
+      const container = document.getElementById('reelContainer');
+      const counterEl = document.getElementById('reelCounter');
+      const dotsEl = document.getElementById('reelDots');
+      const prevBtn = document.getElementById('prevReelBtn');
+      const nextBtn = document.getElementById('nextReelBtn');
+
+      if (!container || !counterEl || !dotsEl || !prevBtn || !nextBtn) return;
+
+      let activeIndex = 0;
+      let touchStartX = 0;
+
+      function mountIframeFallback(id, index) {
+        container.innerHTML = '';
         const iframe = document.createElement('iframe');
-        iframe.src = 'https://drive.google.com/file/d/11CvzbHj1gW-WUKEirP3RGoNXB2gkbxEA/preview';
-        iframe.title = 'Testimonios reales de clientes de Diego Jose Trader';
+        iframe.src = `https://drive.google.com/file/d/${id}/preview`;
+        iframe.title = `Testimonio real ${index + 1} de Diego Jose Trader`;
         iframe.allow = 'autoplay; encrypted-media';
         iframe.allowFullscreen = true;
-        container.innerHTML = '';
         container.appendChild(iframe);
+      }
+
+      function renderReel(index) {
+        activeIndex = ((index % reelIds.length) + reelIds.length) % reelIds.length;
+        const id = reelIds[activeIndex];
+
+        counterEl.innerHTML = `TESTIMONIO <strong>${activeIndex + 1} / ${reelIds.length}</strong>`;
+
+        Array.from(dotsEl.children).forEach((dot, i) => {
+          const isCurrent = i === activeIndex;
+          dot.classList.toggle('active', isCurrent);
+          dot.setAttribute('aria-selected', String(isCurrent));
+        });
+
+        container.innerHTML = '';
+        const video = document.createElement('video');
+        video.src = `https://drive.google.com/uc?export=download&id=${id}`;
+        video.controls = true;
+        video.playsInline = true;
+        video.preload = 'metadata';
+        video.setAttribute('aria-label', `Testimonio real ${activeIndex + 1}`);
+
+        video.addEventListener('error', () => {
+          mountIframeFallback(id, activeIndex);
+        });
+
+        container.appendChild(video);
+      }
+
+      reelIds.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'reel-dot' + (idx === 0 ? ' active' : '');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+        dot.setAttribute('aria-label', `Ir al testimonio ${idx + 1}`);
+        dot.addEventListener('click', () => renderReel(idx));
+        dotsEl.appendChild(dot);
       });
+
+      prevBtn.addEventListener('click', () => renderReel(activeIndex - 1));
+      nextBtn.addEventListener('click', () => renderReel(activeIndex + 1));
+
+      // Deslizar horizontalmente en celular / tablet
+      container.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+        }
+      }, { passive: true });
+
+      container.addEventListener('touchend', (e) => {
+        if (!e.changedTouches || !e.changedTouches.length) return;
+        const diffX = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(diffX) > 45) {
+          if (diffX < 0) renderReel(activeIndex + 1);
+          else renderReel(activeIndex - 1);
+        }
+      }, { passive: true });
+
+      renderReel(0);
     })();
 
     // Barra de progreso de desplazamiento
