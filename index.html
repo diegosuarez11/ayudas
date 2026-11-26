@@ -549,10 +549,241 @@
       transform: translateY(-1px);
     }
 
+    /* Sección de Video Vertical (TikTok / Reel 9:16): +3,200 testimonios reales */
+    .testimonials-section {
+      max-width: 620px;
+      margin: 0 auto 44px;
+    }
+
+    .testimonials-card {
+      position: relative;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-steel);
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 26px 64px rgba(0, 0, 0, 0.65);
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .testimonials-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        420px circle at var(--mx, 50%) var(--my, 20%),
+        rgba(57, 255, 20, 0.08),
+        transparent 65%
+      );
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .testimonials-card:hover {
+      border-color: rgba(57, 255, 20, 0.28);
+    }
+
+    .testimonials-header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-steel);
+    }
+
+    .testimonials-title {
+      font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+
+    .testimonials-title span {
+      color: var(--neon);
+    }
+
+    .testimonials-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Barra de navegación del carrusel */
+    .reel-toolbar {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .reel-counter {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .reel-counter strong {
+      color: var(--neon);
+    }
+
+    .reel-nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reel-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-steel);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease, color 0.16s ease;
+    }
+
+    .reel-btn:hover,
+    .reel-btn:focus-visible {
+      background: var(--neon-muted);
+      border-color: var(--neon-border);
+      color: var(--neon);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .reel-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* Formato Vertical TikTok / Reel (9:16) con respuesta táctil instantánea */
+    .reel-stage {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 0 auto 14px;
+    }
+
+    .reel-frame {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      aspect-ratio: 9 / 16;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #050608;
+      border: 1px solid rgba(57, 255, 20, 0.28);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 24px rgba(57, 255, 20, 0.08);
+      touch-action: pan-y;
+    }
+
+    .reel-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.22s ease;
+      transform: scale(0.985);
+    }
+
+    .reel-slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: scale(1);
+      z-index: 2;
+    }
+
+    .reel-slide iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      background: #050608;
+    }
+
+    /* Indicadores de puntos para saltar entre testimonios */
+    .reel-dots {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .reel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-steel);
+      background: rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 0;
+    }
+
+    .reel-dot.active {
+      width: 26px;
+      background: var(--neon);
+      border-color: var(--neon);
+      box-shadow: 0 0 10px rgba(57, 255, 20, 0.55);
+    }
+
+    .testimonials-footer {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border-steel);
+    }
+
+    .testimonials-note {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .testimonials-note strong {
+      display: block;
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
     /* 3 Cards Centradas con Efecto Spotlight + Elevación */
     .cards-grid {
       max-width: 1040px;
-      margin: 0 auto 48px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
@@ -658,203 +889,6 @@
       line-height: 1.55;
     }
 
-    /* Sección de Video Vertical (TikTok / Reel 9:16): +3,200 testimonios reales */
-    .testimonials-section {
-      max-width: 580px;
-      margin: 0 auto;
-    }
-
-    .testimonials-card {
-      position: relative;
-      background: var(--bg-panel);
-      border: 1px solid var(--border-steel);
-      border-top: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 18px;
-      padding: 26px;
-      box-shadow: 0 26px 64px rgba(0, 0, 0, 0.65);
-      overflow: hidden;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .testimonials-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        420px circle at var(--mx, 50%) var(--my, 20%),
-        rgba(57, 255, 20, 0.08),
-        transparent 65%
-      );
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-    }
-
-    .testimonials-card:hover {
-      border-color: rgba(57, 255, 20, 0.28);
-    }
-
-    .testimonials-header {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding-bottom: 16px;
-      margin-bottom: 16px;
-      border-bottom: 1px solid var(--border-steel);
-    }
-
-    .testimonials-title {
-      font-size: clamp(1.3rem, 2.4vw, 1.7rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      color: var(--text-primary);
-    }
-
-    .testimonials-title span {
-      color: var(--neon);
-    }
-
-    .testimonials-subtitle {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      margin-top: 4px;
-    }
-
-    /* Barra de navegación del carrusel */
-    .reel-toolbar {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .reel-counter {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--text-secondary);
-    }
-
-    .reel-counter strong {
-      color: var(--neon);
-    }
-
-    .reel-nav-buttons {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .reel-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 8px 13px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-steel);
-      color: var(--text-primary);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
-    }
-
-    .reel-btn:hover {
-      background: var(--neon-muted);
-      border-color: var(--neon-border);
-      color: var(--neon);
-      transform: translateY(-1px);
-    }
-
-    /* Formato Vertical TikTok / Reel (9:16) con gesto táctil */
-    .reel-frame {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 340px;
-      aspect-ratio: 9 / 16;
-      margin: 0 auto 14px;
-      border-radius: 18px;
-      overflow: hidden;
-      background: #050608;
-      border: 1px solid rgba(57, 255, 20, 0.26);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 24px rgba(57, 255, 20, 0.08);
-      touch-action: pan-y;
-    }
-
-    .reel-frame video,
-    .reel-frame iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-      object-fit: cover;
-      background: #050608;
-    }
-
-    /* Indicadores de puntos para saltar entre testimonios */
-    .reel-dots {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .reel-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border-steel);
-      background: rgba(255, 255, 255, 0.08);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      padding: 0;
-    }
-
-    .reel-dot.active {
-      width: 26px;
-      background: var(--neon);
-      border-color: var(--neon);
-      box-shadow: 0 0 10px rgba(57, 255, 20, 0.55);
-    }
-
-    .testimonials-footer {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 14px 16px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid var(--border-steel);
-    }
-
-    .testimonials-note {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-    }
-
-    .testimonials-note strong {
-      display: block;
-      color: var(--text-primary);
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
     /* Animación suave de entrada */
     .reveal {
       opacity: 0;
@@ -877,8 +911,10 @@
         transition: none;
       }
       .status-dot,
-      .arrow-pulse-group {
+      .arrow-pulse-group,
+      .reel-slide {
         animation: none;
+        transition: none;
       }
     }
 
@@ -1069,6 +1105,56 @@
         </div>
       </section>
 
+      <!-- Sección de Video Vertical (TikTok / Reel 9:16) arriba de las cards -->
+      <section class="testimonials-section reveal" id="testimonios" tabindex="-1" aria-label="Testimonios en video">
+        <div class="testimonials-card spotlight-card">
+          <div class="testimonials-header">
+            <div>
+              <h2 class="testimonials-title"><span>+3,200</span> testimonios reales</h2>
+              <p class="testimonials-subtitle">
+                Tocá play en cada Reel vertical 9:16 o desplazá entre testimonios al instante.
+              </p>
+            </div>
+            <span class="badge-audit mono">REELS 9:16</span>
+          </div>
+
+          <div class="reel-toolbar">
+            <div class="reel-counter mono" id="reelCounter">
+              TESTIMONIO <strong>1 / 4</strong>
+            </div>
+            <div class="reel-nav-buttons">
+              <button type="button" class="reel-btn" id="prevReelBtn" aria-label="Testimonio anterior">
+                ← Anterior
+              </button>
+              <button type="button" class="reel-btn" id="nextReelBtn" aria-label="Siguiente testimonio">
+                Siguiente →
+              </button>
+            </div>
+          </div>
+
+          <div class="reel-stage">
+            <div class="reel-frame" id="reelContainer"></div>
+          </div>
+
+          <div class="reel-dots" id="reelDots" role="tablist" aria-label="Seleccionar testimonio"></div>
+
+          <div class="testimonials-footer">
+            <div class="testimonials-note">
+              <strong>¿Querés empezar con respaldo y claridad?</strong>
+              <span>Escribime directo en Telegram y conversamos.</span>
+            </div>
+            <a
+              href="https://t.me/ganaplatacondiego"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-tg-compact"
+            >
+              Hablar por Telegram →
+            </a>
+          </div>
+        </div>
+      </section>
+
       <!-- 3 Cards Centradas -->
       <section class="cards-grid reveal" aria-label="Pilares y resultados">
         <article class="feature-card spotlight-card">
@@ -1127,54 +1213,6 @@
           </div>
         </article>
       </section>
-
-      <!-- Sección de Video Vertical (TikTok / Reel 9:16): +3,200 testimonios reales -->
-      <section class="testimonials-section reveal" aria-label="Testimonios en video">
-        <div class="testimonials-card spotlight-card">
-          <div class="testimonials-header">
-            <div>
-              <h2 class="testimonials-title"><span>+3,200</span> testimonios reales</h2>
-              <p class="testimonials-subtitle">
-                Deslizá o usá los botones para ver cada Reel en formato vertical 9:16.
-              </p>
-            </div>
-            <span class="badge-audit mono">REELS 9:16</span>
-          </div>
-
-          <div class="reel-toolbar">
-            <div class="reel-counter mono" id="reelCounter">
-              TESTIMONIO <strong>1 / 4</strong>
-            </div>
-            <div class="reel-nav-buttons">
-              <button type="button" class="reel-btn" id="prevReelBtn" aria-label="Testimonio anterior">
-                ← Anterior
-              </button>
-              <button type="button" class="reel-btn" id="nextReelBtn" aria-label="Siguiente testimonio">
-                Siguiente →
-              </button>
-            </div>
-          </div>
-
-          <div class="reel-frame" id="reelContainer"></div>
-
-          <div class="reel-dots" id="reelDots" role="tablist" aria-label="Seleccionar testimonio"></div>
-
-          <div class="testimonials-footer">
-            <div class="testimonials-note">
-              <strong>¿Querés empezar con respaldo y claridad?</strong>
-              <span>Escribime directo en Telegram y conversamos.</span>
-            </div>
-            <a
-              href="https://t.me/ganaplatacondiego"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-tg-compact"
-            >
-              Hablar por Telegram →
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   </main>
 
@@ -1221,7 +1259,6 @@
       window.addEventListener('resize', resize, { passive: true });
 
       function getCurveY(normX, t) {
-        // Curva ascendente armónica con micro-oscilaciones de mercado
         const trend = height * 0.78 - normX * (height * 0.52);
         const wave1 = Math.sin(normX * 7.5 - t * 2.1) * (height * 0.085);
         const wave2 = Math.cos(normX * 14.0 - t * 3.4) * (height * 0.032);
@@ -1235,7 +1272,6 @@
         const t = reducedMotion ? 1.2 : (now - start) / 1000;
         ctx.clearRect(0, 0, width, height);
 
-        // Líneas de cuadrícula sutiles
         ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
         ctx.lineWidth = 1;
         [0.25, 0.5, 0.75].forEach((ratio) => {
@@ -1246,7 +1282,6 @@
           ctx.stroke();
         });
 
-        // Partículas flotantes de energía
         particles.forEach((p) => {
           if (!reducedMotion) {
             p.x += p.vx;
@@ -1264,7 +1299,6 @@
           ctx.fill();
         });
 
-        // Calcular puntos de la curva dinámica
         const steps = 90;
         const points = [];
         for (let i = 0; i <= steps; i++) {
@@ -1272,7 +1306,6 @@
           points.push({ x: nx * width, y: getCurveY(nx, t) });
         }
 
-        // Área bajo la curva
         const grad = ctx.createLinearGradient(0, 0, 0, height);
         grad.addColorStop(0, 'rgba(57, 255, 20, 0.25)');
         grad.addColorStop(1, 'rgba(57, 255, 20, 0.0)');
@@ -1285,7 +1318,6 @@
         ctx.fillStyle = grad;
         ctx.fill();
 
-        // Línea principal verde flúor
         ctx.save();
         ctx.beginPath();
         points.forEach((pt, idx) => {
@@ -1299,7 +1331,6 @@
         ctx.stroke();
         ctx.restore();
 
-        // Partículas que viajan pegadas a la curva
         const pulseCount = 5;
         for (let k = 0; k < pulseCount; k++) {
           const travelX = ((t * 0.22 + k / pulseCount) % 1 + 1) % 1;
@@ -1315,7 +1346,6 @@
           ctx.shadowBlur = 0;
         }
 
-        // Actualización sutil del indicador numérico
         if (rateBadge && !reducedMotion && now - lastBadgeUpdate > 750) {
           lastBadgeUpdate = now;
           const val = (14.4 + Math.sin(t * 1.4) * 1.35).toFixed(2);
@@ -1330,7 +1360,7 @@
       requestAnimationFrame(render);
     })();
 
-    // Carrusel de 4 videos verticales (9:16) con soporte táctil y respaldo a /preview
+    // Carrusel rápido con precarga de slides adyacentes y soporte táctil + teclado
     (function initReelsCarousel() {
       const reelIds = [
         '11CvzbHj1gW-WUKEirP3RGoNXB2gkbxEA',
@@ -1339,6 +1369,7 @@
         '1vEgbgUw3mhWgcwflBGCofbm4KzxDSD5y'
       ];
 
+      const sectionEl = document.getElementById('testimonios');
       const container = document.getElementById('reelContainer');
       const counterEl = document.getElementById('reelCounter');
       const dotsEl = document.getElementById('reelDots');
@@ -1349,21 +1380,36 @@
 
       let activeIndex = 0;
       let touchStartX = 0;
+      const loadedSlides = new Map();
 
-      function mountIframeFallback(id, index) {
-        container.innerHTML = '';
+      function ensureSlideLoaded(index) {
+        const normalized = ((index % reelIds.length) + reelIds.length) % reelIds.length;
+        if (loadedSlides.has(normalized)) return loadedSlides.get(normalized);
+
+        const slide = document.createElement('div');
+        slide.className = 'reel-slide';
+        slide.setAttribute('role', 'tabpanel');
+        slide.setAttribute('aria-label', `Testimonio ${normalized + 1} de ${reelIds.length}`);
+
         const iframe = document.createElement('iframe');
-        iframe.src = `https://drive.google.com/file/d/${id}/preview`;
-        iframe.title = `Testimonio real ${index + 1} de Diego Jose Trader`;
-        iframe.allow = 'autoplay; encrypted-media';
+        iframe.src = `https://drive.google.com/file/d/${reelIds[normalized]}/preview`;
+        iframe.title = `Testimonio real ${normalized + 1} de Diego Jose Trader`;
+        iframe.allow = 'autoplay; encrypted-media; fullscreen';
         iframe.allowFullscreen = true;
-        container.appendChild(iframe);
+
+        slide.appendChild(iframe);
+        container.appendChild(slide);
+        loadedSlides.set(normalized, slide);
+        return slide;
       }
 
-      function renderReel(index) {
-        activeIndex = ((index % reelIds.length) + reelIds.length) % reelIds.length;
-        const id = reelIds[activeIndex];
+      function prefetchNeighbors(index) {
+        ensureSlideLoaded(index + 1);
+        ensureSlideLoaded(index - 1);
+      }
 
+      function showReel(index) {
+        activeIndex = ((index % reelIds.length) + reelIds.length) % reelIds.length;
         counterEl.innerHTML = `TESTIMONIO <strong>${activeIndex + 1} / ${reelIds.length}</strong>`;
 
         Array.from(dotsEl.children).forEach((dot, i) => {
@@ -1372,19 +1418,15 @@
           dot.setAttribute('aria-selected', String(isCurrent));
         });
 
-        container.innerHTML = '';
-        const video = document.createElement('video');
-        video.src = `https://drive.google.com/uc?export=download&id=${id}`;
-        video.controls = true;
-        video.playsInline = true;
-        video.preload = 'metadata';
-        video.setAttribute('aria-label', `Testimonio real ${activeIndex + 1}`);
+        // Asegura que el slide activo esté montado inmediatamente
+        ensureSlideLoaded(activeIndex);
 
-        video.addEventListener('error', () => {
-          mountIframeFallback(id, activeIndex);
+        loadedSlides.forEach((slide, idx) => {
+          slide.classList.toggle('is-active', idx === activeIndex);
         });
 
-        container.appendChild(video);
+        // Precarga los testimonios contiguos para cambiar al instante
+        prefetchNeighbors(activeIndex);
       }
 
       reelIds.forEach((_, idx) => {
@@ -1394,12 +1436,25 @@
         dot.setAttribute('role', 'tab');
         dot.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
         dot.setAttribute('aria-label', `Ir al testimonio ${idx + 1}`);
-        dot.addEventListener('click', () => renderReel(idx));
+        dot.addEventListener('click', () => showReel(idx));
         dotsEl.appendChild(dot);
       });
 
-      prevBtn.addEventListener('click', () => renderReel(activeIndex - 1));
-      nextBtn.addEventListener('click', () => renderReel(activeIndex + 1));
+      prevBtn.addEventListener('click', () => showReel(activeIndex - 1));
+      nextBtn.addEventListener('click', () => showReel(activeIndex + 1));
+
+      // Navegación con flechas del teclado dentro de la sección
+      if (sectionEl) {
+        sectionEl.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            showReel(activeIndex + 1);
+          } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            showReel(activeIndex - 1);
+          }
+        });
+      }
 
       // Deslizar horizontalmente en celular / tablet
       container.addEventListener('touchstart', (e) => {
@@ -1411,13 +1466,13 @@
       container.addEventListener('touchend', (e) => {
         if (!e.changedTouches || !e.changedTouches.length) return;
         const diffX = e.changedTouches[0].clientX - touchStartX;
-        if (Math.abs(diffX) > 45) {
-          if (diffX < 0) renderReel(activeIndex + 1);
-          else renderReel(activeIndex - 1);
+        if (Math.abs(diffX) > 40) {
+          if (diffX < 0) showReel(activeIndex + 1);
+          else showReel(activeIndex - 1);
         }
       }, { passive: true });
 
-      renderReel(0);
+      showReel(0);
     })();
 
     // Barra de progreso de desplazamiento
