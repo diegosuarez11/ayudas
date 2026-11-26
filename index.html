@@ -189,7 +189,7 @@
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 14px;
     }
 
     .verified-pill {
@@ -227,9 +227,12 @@
       border-radius: 8px;
       background: var(--tg-blue);
       color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.85rem;
       font-weight: 700;
       text-decoration: none;
+      border: 0;
+      cursor: pointer;
       transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
     }
 
@@ -385,21 +388,31 @@
       gap: 12px;
     }
 
+    .cta-buttons-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
     .btn-telegram-primary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
-      padding: 16px 34px;
+      padding: 15px 30px;
       border-radius: 10px;
       background: linear-gradient(180deg, var(--tg-blue-hover) 0%, var(--tg-blue) 100%);
       color: #ffffff;
-      font-size: 1.02rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
       font-weight: 700;
       letter-spacing: -0.01em;
       text-decoration: none;
       border: 1px solid rgba(255, 255, 255, 0.24);
       box-shadow: 0 14px 32px -6px var(--tg-shadow);
+      cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
     }
 
@@ -407,6 +420,30 @@
       transform: translateY(-2px);
       filter: brightness(1.06);
       box-shadow: 0 18px 38px -6px rgba(36, 161, 222, 0.45);
+    }
+
+    .btn-group-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 24px;
+      border-radius: 10px;
+      background: var(--bg-panel);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--neon-border);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-group-secondary:hover {
+      transform: translateY(-2px);
+      background: var(--neon-muted);
+      border-color: var(--neon);
     }
 
     .cta-caption {
@@ -561,6 +598,13 @@
       font-size: 0.92rem;
     }
 
+    .btn-group-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
     .btn-tg-compact {
       display: inline-flex;
       align-items: center;
@@ -569,15 +613,41 @@
       border-radius: 8px;
       background: var(--tg-blue);
       color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.84rem;
       font-weight: 700;
       text-decoration: none;
+      border: 0;
+      cursor: pointer;
       white-space: nowrap;
       transition: background 0.18s ease, transform 0.18s ease;
     }
 
     .btn-tg-compact:hover {
       background: var(--tg-blue-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-group-compact {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      background: rgba(128, 128, 128, 0.07);
+      border: 1px solid var(--neon-border);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .btn-group-compact:hover {
+      background: var(--neon-muted);
+      border-color: var(--neon);
       transform: translateY(-1px);
     }
 
@@ -918,6 +988,87 @@
       line-height: 1.55;
     }
 
+    /* Modal para ingresar el nombre antes de ir al chat de @diegojosetrader */
+    .name-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background: rgba(0, 0, 0, 0.68);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .name-modal-backdrop.is-open {
+      display: flex;
+      animation: chatPop 0.18s ease;
+    }
+
+    .name-modal-card {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 18px;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-steel);
+      border-top: 1px solid var(--border-top-highlight);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.65);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .name-modal-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .name-modal-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .name-modal-sub {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .name-input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border-steel);
+      background: var(--chart-bg);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .name-input:focus {
+      border-color: var(--neon);
+      box-shadow: 0 0 0 3px var(--neon-muted);
+    }
+
+    .name-modal-error {
+      font-size: 0.78rem;
+      color: #f87171;
+      font-weight: 600;
+      display: none;
+    }
+
+    .name-modal-error.is-visible {
+      display: block;
+    }
+
     /* Botones flotantes abajo a la derecha (Foco + Mini Diego) */
     .floating-dock {
       position: fixed;
@@ -1154,9 +1305,11 @@
       border-radius: 10px;
       background: var(--tg-blue);
       color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.85rem;
       font-weight: 700;
-      text-decoration: none;
+      border: 0;
+      cursor: pointer;
       box-shadow: 0 10px 24px -6px var(--tg-shadow);
       transition: background 0.18s ease, transform 0.18s ease;
     }
@@ -1202,7 +1355,8 @@
       .status-dot,
       .arrow-pulse-group,
       .reel-slide,
-      .diego-chat-panel.is-open {
+      .diego-chat-panel.is-open,
+      .name-modal-backdrop.is-open {
         animation: none;
         transition: none;
       }
@@ -1265,17 +1419,15 @@
           <span class="status-dot"></span>
           <span>CANAL VERIFICADO</span>
         </div>
-        <a
-          href="https://t.me/ganaplatacondiego"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-tg-nav"
+        <button
+          type="button"
+          class="btn-tg-nav js-open-diego-direct"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M21.4 4.6L2.9 11.7c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 11-6.9c.5-.3 1-.1.6.2l-8.9 8-.3 4.9c.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.3-1.6z"/>
           </svg>
-          Telegram
-        </a>
+          Chat Diego
+        </button>
       </div>
     </div>
   </header>
@@ -1346,18 +1498,28 @@
         </div>
 
         <div class="cta-centered">
-          <a
-            href="https://t.me/ganaplatacondiego"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-telegram-primary"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M21.4 4.6L2.9 11.7c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 11-6.9c.5-.3 1-.1.6.2l-8.9 8-.3 4.9c.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.3-1.6z"/>
-            </svg>
-            Unirme al Telegram de Diego
-          </a>
-          <span class="cta-caption">Acompañamiento directo y sin intermediarios.</span>
+          <div class="cta-buttons-row">
+            <button
+              type="button"
+              class="btn-telegram-primary js-open-diego-direct"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M21.4 4.6L2.9 11.7c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 11-6.9c.5-.3 1-.1.6.2l-8.9 8-.3 4.9c.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.3-1.6z"/>
+              </svg>
+              Hablar con Diego (@diegojosetrader)
+            </button>
+
+            <a
+              href="https://t.me/ganaplatacondiego"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-group-secondary"
+            >
+              <span>⭐</span>
+              Grupo de Testimonios
+            </a>
+          </div>
+          <span class="cta-caption">Acompañamiento directo en @diegojosetrader y comunidad en Grupo de Testimonios.</span>
         </div>
       </section>
 
@@ -1385,17 +1547,25 @@
 
           <div class="card-footer-cta">
             <div class="card-footer-text">
-              <strong>Canal Oficial en Telegram</strong>
+              <strong>Atención directa @diegojosetrader</strong>
               <span>Ayuda concreta y estás en buenas manos</span>
             </div>
-            <a
-              href="https://t.me/ganaplatacondiego"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-tg-compact"
-            >
-              Ingresar a Telegram →
-            </a>
+            <div class="btn-group-actions">
+              <button
+                type="button"
+                class="btn-tg-compact js-open-diego-direct"
+              >
+                Chat con Diego →
+              </button>
+              <a
+                href="https://t.me/ganaplatacondiego"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-group-compact"
+              >
+                Grupo de Testimonios
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1436,16 +1606,24 @@
           <div class="testimonials-footer">
             <div class="testimonials-note">
               <strong>¿Querés empezar con respaldo y claridad?</strong>
-              <span>Escribime directo en Telegram y conversamos.</span>
+              <span>Escribile directo a Diego o sumate al Grupo de Testimonios.</span>
             </div>
-            <a
-              href="https://t.me/ganaplatacondiego"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-tg-compact"
-            >
-              Hablar por Telegram →
-            </a>
+            <div class="btn-group-actions">
+              <button
+                type="button"
+                class="btn-tg-compact js-open-diego-direct"
+              >
+                Hablar con Diego →
+              </button>
+              <a
+                href="https://t.me/ganaplatacondiego"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-group-compact"
+              >
+                Grupo de Testimonios
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1510,6 +1688,34 @@
       </section>
     </div>
   </main>
+
+  <!-- Modal para colocar el nombre antes de redirigir al chat de @diegojosetrader -->
+  <div class="name-modal-backdrop" id="nameModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="nameModalTitle">
+    <div class="name-modal-card">
+      <div class="name-modal-top">
+        <h3 class="name-modal-title" id="nameModalTitle">💬 Hablá directo con Diego</h3>
+        <button type="button" class="diego-close-btn" id="closeNameModalBtn" aria-label="Cerrar ventana">✕</button>
+      </div>
+      <p class="name-modal-sub">
+        Escribí tu nombre para armar tu presentación y abrir el chat privado de <strong>@diegojosetrader</strong> en Telegram.
+      </p>
+      <input
+        type="text"
+        id="clientNameInput"
+        class="name-input"
+        placeholder="Tu nombre (ej. Lucas)"
+        maxlength="60"
+        autocomplete="name"
+      />
+      <span class="name-modal-error" id="nameModalError">Por favor, escribí tu nombre para continuar.</span>
+      <button type="button" class="chat-tg-send" id="confirmNameTelegramBtn">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21.4 4.6L2.9 11.7c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 11-6.9c.5-.3 1-.1.6.2l-8.9 8-.3 4.9c.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.3-1.6z"/>
+        </svg>
+        Continuar al chat de @diegojosetrader
+      </button>
+    </div>
+  </div>
 
   <!-- Botones Flotantes Derecho Abajo: Foco (Oscuro/Claro) + Mini Diego (Chatbot) -->
   <aside class="floating-dock" aria-label="Asistente y apariencia">
@@ -1576,6 +1782,70 @@
   </footer>
 
   <script>
+    // Gestor centralizado para pedir el nombre y redirigir a @diegojosetrader
+    const TelegramLeadRouter = (function initTelegramLeadRouter() {
+      const backdrop = document.getElementById('nameModalBackdrop');
+      const closeBtn = document.getElementById('closeNameModalBtn');
+      const nameInput = document.getElementById('clientNameInput');
+      const errorEl = document.getElementById('nameModalError');
+      const confirmBtn = document.getElementById('confirmNameTelegramBtn');
+
+      let customMessageBuilder = null;
+
+      function defaultBuilder(nombre) {
+        return (
+          `👋 ¡Hola Diego! ¿Cómo estás?\n` +
+          `🚀 Soy *${nombre}* y vengo desde tu web oficial *Diego Jose Trader*.\n` +
+          `💎 Quiero recibir una *ayuda* para invertir con precisión, respaldo y seguridad.\n` +
+          `📩 ¡Quedo atento a tu respuesta!`
+        );
+      }
+
+      function openWithBuilder(builderFn) {
+        customMessageBuilder = typeof builderFn === 'function' ? builderFn : null;
+        if (!backdrop || !nameInput) return;
+        errorEl?.classList.remove('is-visible');
+        backdrop.classList.add('is-open');
+        setTimeout(() => nameInput.focus(), 50);
+      }
+
+      function closeModal() {
+        backdrop?.classList.remove('is-open');
+        errorEl?.classList.remove('is-visible');
+      }
+
+      function submitLead() {
+        const rawName = (nameInput?.value || '').trim();
+        if (!rawName) {
+          errorEl?.classList.add('is-visible');
+          nameInput?.focus();
+          return;
+        }
+        const messageText = customMessageBuilder ? customMessageBuilder(rawName) : defaultBuilder(rawName);
+        const url = `https://t.me/diegojosetrader?text=${encodeURIComponent(messageText)}`;
+        closeModal();
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
+
+      closeBtn?.addEventListener('click', closeModal);
+      backdrop?.addEventListener('click', (e) => {
+        if (e.target === backdrop) closeModal();
+      });
+      confirmBtn?.addEventListener('click', submitLead);
+      nameInput?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          submitLead();
+        }
+      });
+
+      document.querySelectorAll('.js-open-diego-direct').forEach((btn) => {
+        btn.addEventListener('click', () => openWithBuilder(null));
+      });
+
+      return { openWithBuilder };
+    })();
+
     // Botón Foco: Alterna entre apariencia oscura y clara
     (function initThemeBulb() {
       const btn = document.getElementById('themeToggleBtn');
@@ -1592,7 +1862,7 @@
       });
     })();
 
-    // Chatbot Mini Diego: Recauda respuestas y redirige a @diegojosetrader con el resumen
+    // Chatbot Mini Diego: Recauda respuestas, pide nombre y redirige a @diegojosetrader con mensaje pro
     (function initMiniDiegoChat() {
       const openBtn = document.getElementById('openDiegoBtn');
       const closeBtn = document.getElementById('closeDiegoBtn');
@@ -1616,20 +1886,22 @@
         bodyEl.scrollTop = bodyEl.scrollHeight;
       }
 
-      function buildTelegramUrl() {
-        const msg =
-          `Hola Diego (@diegojosetrader), hablé con Mini Diego desde la web.\n` +
-          `• ¿Tu situación está mala?: ${state.situacionMala}\n` +
-          `• ¿Querés invertir (Diego se encarga de hacer todo el trabajo)?: ${state.quiereInvertir}\n` +
-          `Quisiera recibir una ayuda.`;
-        return `https://t.me/diegojosetrader?text=${encodeURIComponent(msg)}`;
+      function buildMarketingMessage(nombre) {
+        return (
+          `👋 ¡Hola Diego! Soy *${nombre}* y acabo de hablar con *Mini Diego* desde tu sitio web oficial.\n\n` +
+          `📊 *Diagnóstico rápido:*\n` +
+          `• *¿Tu situación está mala?:* ${state.situacionMala}\n` +
+          `• *¿Querés invertir (Diego se encarga de todo el trabajo)?:* ${state.quiereInvertir}\n\n` +
+          `🎯 *Objetivo:* Quiero recibir una *ayuda* con precisión, estrategia y seguridad absoluta.\n` +
+          `⚡ ¡Listo para empezar y dar el siguiente paso!`
+        );
       }
 
       function renderStep() {
         actionsEl.innerHTML = '';
 
         if (state.step === 0) {
-          appendMsg('¡Hola! Soy Mini Diego. Vamos rápido: ¿tu situación está mala?', 'bot');
+          appendMsg('¡Hola! Soy Mini Diego 👋✨\nVamos directo al grano: ¿tu situación está mala?', 'bot');
           const row = document.createElement('div');
           row.className = 'option-row';
 
@@ -1659,7 +1931,7 @@
           row.appendChild(noBtn);
           actionsEl.appendChild(row);
         } else if (state.step === 1) {
-          appendMsg('¿Querés invertir? Le pasás a Diego y él se encarga de hacer todo el trabajo.', 'bot');
+          appendMsg('¿Querés invertir? 🔥\nLe pasás a Diego y él se encarga de hacer todo el trabajo con precisión.', 'bot');
           const row = document.createElement('div');
           row.className = 'option-row';
 
@@ -1690,21 +1962,22 @@
           actionsEl.appendChild(row);
         } else {
           appendMsg(
-            `Listo, ya anoté tu info:\n• Situación: ${state.situacionMala}\n• Inversión: ${state.quiereInvertir}\n\nTocá el botón para ir directo al chat de @diegojosetrader con todo cargado.`,
+            `✅ ¡Perfil listo para enviar a Diego!\n\n📌 Situación: ${state.situacionMala}\n💼 Inversión: ${state.quiereInvertir}\n\nTocá el botón de abajo, poné tu nombre y pasás directo al chat de @diegojosetrader.`,
             'bot'
           );
 
-          const tgLink = document.createElement('a');
-          tgLink.href = buildTelegramUrl();
-          tgLink.target = '_blank';
-          tgLink.rel = 'noopener noreferrer';
-          tgLink.className = 'chat-tg-send';
-          tgLink.innerHTML = `
+          const sendBtn = document.createElement('button');
+          sendBtn.type = 'button';
+          sendBtn.className = 'chat-tg-send';
+          sendBtn.innerHTML = `
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M21.4 4.6L2.9 11.7c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 11-6.9c.5-.3 1-.1.6.2l-8.9 8-.3 4.9c.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.3-1.6z"/>
             </svg>
-            Ir al chat de @diegojosetrader
+            Enviar a @diegojosetrader
           `;
+          sendBtn.addEventListener('click', () => {
+            TelegramLeadRouter.openWithBuilder(buildMarketingMessage);
+          });
 
           const resetBtn = document.createElement('button');
           resetBtn.type = 'button';
@@ -1718,7 +1991,7 @@
             renderStep();
           });
 
-          actionsEl.appendChild(tgLink);
+          actionsEl.appendChild(sendBtn);
           actionsEl.appendChild(resetBtn);
         }
       }
