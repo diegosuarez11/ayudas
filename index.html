@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diego Jose Trader | Acceso Directo Telegram</title>
+  <title>Diego Jose Trader | Resultados Trazables & Telegram</title>
   <meta
     name="description"
-    content="Canal oficial de Diego Jose Trader. Ejecución institucional, precisión y acceso directo a Telegram."
+    content="Canal oficial de Diego Jose Trader. Obtené resultados trazablemente estudiados y acceso directo a Telegram."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,6 +29,10 @@
       --neon-dark: #19b800;
       --neon-glow: rgba(57, 255, 20, 0.35);
       --neon-soft: rgba(57, 255, 20, 0.1);
+      --tg-blue: #24A1DE;
+      --tg-blue-light: #4db8eb;
+      --tg-blue-dark: #1673a1;
+      --tg-glow: rgba(36, 161, 222, 0.42);
     }
 
     * {
@@ -85,9 +89,9 @@
 
     /* Topbar metálica */
     header {
-      padding: 20px 0;
+      padding: 18px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      background: linear-gradient(180deg, rgba(18, 21, 25, 0.85), rgba(8, 10, 12, 0.6));
+      background: linear-gradient(180deg, rgba(18, 21, 25, 0.88), rgba(8, 10, 12, 0.65));
       backdrop-filter: blur(14px);
     }
 
@@ -106,23 +110,30 @@
       color: var(--text-white);
     }
 
-    /* Monograma 3D biselado */
-    .emblem-3d {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: linear-gradient(145deg, #232830, #0c0e11);
-      border: 1px solid rgba(57, 255, 20, 0.45);
+    /* Foto de perfil circular profesional */
+    .avatar-ring {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      padding: 2px;
+      background: linear-gradient(145deg, var(--neon), #2a313a 55%, var(--neon));
       box-shadow:
-        inset 0 1px 1px rgba(255, 255, 255, 0.2),
-        0 8px 20px rgba(0, 0, 0, 0.8),
-        0 0 18px rgba(57, 255, 20, 0.18);
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--neon);
-      letter-spacing: 0.04em;
+        0 6px 18px rgba(0, 0, 0, 0.8),
+        0 0 16px rgba(57, 255, 20, 0.25);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      background-color: #121519;
     }
 
     .brand-title {
@@ -176,7 +187,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 44px;
       align-items: center;
     }
@@ -185,7 +196,7 @@
       display: inline-block;
       font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--neon);
       margin-bottom: 14px;
@@ -193,8 +204,8 @@
     }
 
     h1 {
-      font-size: clamp(2.4rem, 5vw, 3.85rem);
-      line-height: 1.03;
+      font-size: clamp(2.2rem, 4.4vw, 3.45rem);
+      line-height: 1.06;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: -0.01em;
@@ -212,14 +223,19 @@
     }
 
     .lead {
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       color: var(--text-grey);
-      max-width: 500px;
-      line-height: 1.55;
+      max-width: 520px;
+      line-height: 1.6;
       margin-bottom: 30px;
     }
 
-    /* Botón 3D Extruido Verde Flúor */
+    .lead strong {
+      color: var(--text-white);
+      font-weight: 600;
+    }
+
+    /* Botón 3D Extruido Color Oficial Telegram */
     .cta-wrap {
       display: flex;
       flex-direction: column;
@@ -235,19 +251,19 @@
       gap: 14px;
       padding: 18px 34px;
       border-radius: 14px;
-      background: linear-gradient(180deg, #5cff3d 0%, #39ff14 48%, #24c906 100%);
-      color: #040704;
+      background: linear-gradient(180deg, var(--tg-blue-light) 0%, var(--tg-blue) 48%, #1a88bd 100%);
+      color: #ffffff;
       font-family: 'Chakra Petch', sans-serif;
       font-weight: 700;
       font-size: 1.12rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       text-decoration: none;
-      border: 1px solid #9eff8a;
+      border: 1px solid #7ad0f7;
       box-shadow:
-        0 6px 0 #137a00,
-        0 14px 32px rgba(57, 255, 20, 0.35),
-        inset 0 2px 1px rgba(255, 255, 255, 0.65);
+        0 6px 0 var(--tg-blue-dark),
+        0 14px 32px var(--tg-glow),
+        inset 0 2px 1px rgba(255, 255, 255, 0.45);
       transition: transform 0.14s ease, box-shadow 0.14s ease, filter 0.14s ease;
     }
 
@@ -255,17 +271,17 @@
       transform: translateY(-2px);
       filter: brightness(1.06);
       box-shadow:
-        0 8px 0 #137a00,
-        0 20px 42px rgba(57, 255, 20, 0.5),
-        inset 0 2px 1px rgba(255, 255, 255, 0.75);
+        0 8px 0 var(--tg-blue-dark),
+        0 20px 42px rgba(36, 161, 222, 0.58),
+        inset 0 2px 1px rgba(255, 255, 255, 0.6);
     }
 
     .btn-3d-telegram:active {
       transform: translateY(4px);
       box-shadow:
-        0 2px 0 #137a00,
-        0 6px 16px rgba(57, 255, 20, 0.3),
-        inset 0 2px 1px rgba(255, 255, 255, 0.5);
+        0 2px 0 var(--tg-blue-dark),
+        0 6px 16px rgba(36, 161, 222, 0.35),
+        inset 0 2px 1px rgba(255, 255, 255, 0.4);
     }
 
     .btn-subtext {
@@ -407,14 +423,14 @@
       display: block;
     }
 
-    /* Barra inferior de acceso dentro de la tarjeta */
+    /* Barra inferior de acceso dentro de la tarjeta con color oficial Telegram */
     .panel-cta {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       background: linear-gradient(145deg, #14181d, #090b0d);
-      border: 1px solid rgba(57, 255, 20, 0.28);
+      border: 1px solid rgba(36, 161, 222, 0.35);
       border-radius: 14px;
       padding: 14px 16px;
     }
@@ -436,13 +452,14 @@
       gap: 8px;
       padding: 10px 16px;
       border-radius: 10px;
-      background: var(--neon);
-      color: #050805;
+      background: linear-gradient(180deg, var(--tg-blue-light), var(--tg-blue));
+      color: #ffffff;
       font-weight: 700;
       font-size: 0.82rem;
       text-decoration: none;
       white-space: nowrap;
-      box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 4px 16px var(--tg-glow);
       transition: transform 0.15s ease, filter 0.15s ease;
     }
 
@@ -489,7 +506,14 @@
   <header>
     <div class="container topbar">
       <a href="#" class="brand">
-        <div class="emblem-3d display">DJ</div>
+        <div class="avatar-ring">
+          <img
+            src="https://lh3.googleusercontent.com/d/1tCWbA-ydoZwr6selsT3HxDo9JP70WQPU"
+            alt="Diego Jose Trader"
+            class="avatar-img"
+            referrerpolicy="no-referrer"
+          />
+        </div>
         <div>
           <div class="brand-title display">Diego Jose Trader</div>
           <div class="brand-sub mono">Precision Trading</div>
@@ -507,38 +531,37 @@
     <div class="container hero-grid">
       <!-- Columna izquierda: Mensaje directo y CTA -->
       <div>
-        <span class="kicker mono">// ACCESO DIRECTO A OPERATIVA</span>
+        <span class="kicker mono">// MÉTODO AUDITABLE &amp; PRECISIÓN</span>
 
         <h1 class="display">
-          Trading real.<br />
-          <span class="neon-text">Resultados</span> sin ruido.
+          Obtené <span class="neon-text">resultados</span> trazablemente estudiados.
         </h1>
 
         <p class="lead">
-          Operativa profesional basada en estructura, gestión estricta del riesgo y ejecución fría.
-          Entrá directo a mi canal oficial de Telegram.
+          <strong>Soy Diego, estás en buenas manos.</strong> Operativa respaldada por análisis
+          riguroso, estructura clara y gestión profesional del capital. Accedé directo a mi canal
+          oficial en Telegram.
         </p>
 
         <div class="cta-wrap">
-          <!-- REEMPLAZAR POR EL LINK REAL DE TELEGRAM -->
+          <!-- LINK DE TELEGRAM (REEMPLAZÁ POR TU USUARIO O CANAL) -->
           <a
             href="https://t.me/tu_usuario_o_canal"
             target="_blank"
             rel="noopener noreferrer"
             class="btn-3d-telegram"
           >
-            <!-- Ícono Telegram 3D metálico/oscuro -->
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path
                 d="M21.4 4.6L2.9 11.7c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 11-6.9c.5-.3 1-.1.6.2l-8.9 8-.3 4.9c.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.3-1.6z"
-                fill="#040704"
+                fill="#ffffff"
               />
             </svg>
-            Entrar al Telegram Ahora
+            Unirme al Telegram de Diego
           </a>
 
           <span class="btn-subtext mono">
-            [ CLIC DIRECTO • CANAL OFICIAL DIEGO JOSE TRADER ]
+            [ ACCESO DIRECTO • RESULTADOS TRAZABLES • SIN INTERMEDIARIOS ]
           </span>
         </div>
 
@@ -554,8 +577,8 @@
                 <polyline points="24,4 42,14 42,34 24,44 6,34 6,14 24,4" stroke="#7dff66" stroke-width="1.2" />
               </svg>
             </div>
-            <div class="pillar-title display">LECTURA 360°</div>
-            <div class="pillar-desc">Liquidez, estructura y zonas institucionales.</div>
+            <div class="pillar-title display">TRAZABILIDAD</div>
+            <div class="pillar-desc">Cada escenario estudiado y respaldado con criterio.</div>
           </div>
 
           <div class="pillar-card">
@@ -573,7 +596,7 @@
               </svg>
             </div>
             <div class="pillar-title display">RIESGO MEDIDO</div>
-            <div class="pillar-desc">Control estricto de capital en cada entrada.</div>
+            <div class="pillar-desc">Protección estricta del capital en cada operación.</div>
           </div>
 
           <div class="pillar-card">
@@ -585,8 +608,8 @@
                 <polygon points="23,26 19,44 37,21 25,21" fill="#1ea805" opacity="0.65" />
               </svg>
             </div>
-            <div class="pillar-title display">AL GRANO</div>
-            <div class="pillar-desc">Análisis y actualizaciones directo en Telegram.</div>
+            <div class="pillar-title display">DIRECTO AL PUNTO</div>
+            <div class="pillar-desc">Seguimiento y operativa real dentro de Telegram.</div>
           </div>
         </div>
       </div>
@@ -595,14 +618,14 @@
       <div class="stage-3d">
         <div class="metal-panel-3d" id="tiltCard">
           <div class="panel-header">
-            <span class="panel-id mono">TERMINAL // DJ-TRADER</span>
+            <span class="panel-id mono">DIEGO JOSE // TRADING DESK</span>
             <span class="panel-badge mono">PRO EXECUTION</span>
           </div>
 
           <div class="chart-3d-screen">
             <div class="chart-top-info">
-              <span class="ticker mono">MARKET STRUCTURE</span>
-              <span class="trend-tag mono">▲ MOMENTUM</span>
+              <span class="ticker mono">ANÁLISIS TRAZABLE</span>
+              <span class="trend-tag mono">▲ CONSISTENCIA</span>
             </div>
 
             <!-- Velas Japonesas con Volumen 3D -->
@@ -691,16 +714,16 @@
           <div class="panel-cta">
             <div class="panel-cta-text">
               <strong>Canal Oficial Telegram</strong>
-              <span>Unite en un clic</span>
+              <span>Estás en buenas manos</span>
             </div>
-            <!-- REEMPLAZAR POR EL LINK REAL DE TELEGRAM -->
+            <!-- LINK DE TELEGRAM (REEMPLAZÁ POR TU USUARIO O CANAL) -->
             <a
               href="https://t.me/tu_usuario_o_canal"
               target="_blank"
               rel="noopener noreferrer"
               class="mini-tg-link mono"
             >
-              ABRIR TELEGRAM →
+              IR A TELEGRAM →
             </a>
           </div>
         </div>
