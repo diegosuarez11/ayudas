@@ -209,10 +209,8 @@
 
     /* Main Centrado y Cómodo */
     main {
-      padding: 52px 0 52px;
+      padding: 52px 0 60px;
       flex: 1;
-      display: flex;
-      align-items: center;
     }
 
     .hero-block {
@@ -536,7 +534,7 @@
     /* 3 Cards Centradas con Efecto Spotlight + Elevación */
     .cards-grid {
       max-width: 1040px;
-      margin: 0 auto;
+      margin: 0 auto 48px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
@@ -640,6 +638,117 @@
       font-weight: 400;
       color: var(--text-secondary);
       line-height: 1.55;
+    }
+
+    /* Sección de Video +3,200 testimonios reales */
+    .testimonials-section {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .testimonials-card {
+      position: relative;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-steel);
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 26px 64px rgba(0, 0, 0, 0.65);
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .testimonials-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        420px circle at var(--mx, 50%) var(--my, 20%),
+        rgba(57, 255, 20, 0.08),
+        transparent 65%
+      );
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .testimonials-card:hover {
+      border-color: rgba(57, 255, 20, 0.28);
+    }
+
+    .testimonials-header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-steel);
+    }
+
+    .testimonials-title {
+      font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+
+    .testimonials-title span {
+      color: var(--neon);
+    }
+
+    .testimonials-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .video-frame {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #060709;
+      border: 1px solid var(--border-steel);
+      box-shadow: inset 0 2px 16px rgba(0, 0, 0, 0.75);
+      margin-bottom: 20px;
+    }
+
+    .video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .testimonials-footer {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 15px 18px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border-steel);
+    }
+
+    .testimonials-note {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+    }
+
+    .testimonials-note strong {
+      display: block;
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 0.92rem;
     }
 
     /* Animación suave de entrada */
@@ -933,6 +1042,45 @@
             </p>
           </div>
         </article>
+      </section>
+
+      <!-- Sección de Video: +3,200 testimonios reales -->
+      <section class="testimonials-section reveal" aria-label="Testimonios en video">
+        <div class="testimonials-card spotlight-card">
+          <div class="testimonials-header">
+            <div>
+              <h2 class="testimonials-title"><span>+3,200</span> testimonios reales</h2>
+              <p class="testimonials-subtitle">
+                Experiencias de personas que decidieron dar el paso y mejorar su economía con acompañamiento real.
+              </p>
+            </div>
+            <span class="badge-audit mono">VIDEO VERIFICADO</span>
+          </div>
+
+          <div class="video-frame">
+            <iframe
+              src="https://drive.google.com/file/d/11CvzbHj1gW-WUKEirP3RGoNXB2gkbxEA/preview"
+              title="Testimonios reales de clientes de Diego Jose Trader"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="testimonials-footer">
+            <div class="testimonials-note">
+              <strong>¿Querés empezar con respaldo y claridad?</strong>
+              <span>Escribime directo en Telegram y conversamos.</span>
+            </div>
+            <a
+              href="https://t.me/ganaplatacondiego"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-tg-compact"
+            >
+              Hablar por Telegram →
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   </main>
